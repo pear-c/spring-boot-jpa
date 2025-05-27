@@ -18,6 +18,7 @@ public class ShoppingCart {
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Products productId;
+
     private LocalDateTime dateCreated;
 
     public ShoppingCart() {
