@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @NoArgsConstructor
 @Getter
@@ -23,4 +25,7 @@ public class Products {
     private String productImage;
     private BigDecimal uniCost;
     private String description;
+
+    @OneToMany(mappedBy = "products")
+    private List<Reviews> reviews = new ArrayList<>();
 }
