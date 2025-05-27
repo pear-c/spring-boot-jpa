@@ -1,9 +1,6 @@
 package com.nhnacademy.springbootjpa.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -16,7 +13,11 @@ public class Products {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int productId;
-    private int categoryId;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Categories categories;
+
     private String modelNumber;
     private String modelName;
     private String productImage;

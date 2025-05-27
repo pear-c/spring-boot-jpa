@@ -1,9 +1,6 @@
 package com.nhnacademy.springbootjpa.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
@@ -16,7 +13,10 @@ public class ShoppingCart {
     private int recordId;
     private String cartId;
     private int quantity;
-    private int productId;
+
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Products productId;
     private LocalDateTime dateCreated;
 
     public ShoppingCart() {

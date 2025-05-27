@@ -1,8 +1,6 @@
 package com.nhnacademy.springbootjpa.entity;
 
-import jakarta.persistence.Embeddable;
-import jakarta.persistence.EmbeddedId;
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,20 +12,19 @@ import java.math.BigDecimal;
 @Getter
 @Entity
 public class OrderDetails {
-    @EmbeddedId
-    private Pk pk;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int orderDetailId;
+
+    @ManyToOne
+    @JoinColumn(name = "order_id")
+    private Orders orders;
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Products products;
 
     private int quantity;
     private BigDecimal unitCost;
-
-    @NoArgsConstructor
-    @EqualsAndHashCode
-    @Getter
-    @Embeddable
-    public static class Pk implements Serializable {
-        private int orderId;
-        private int productId;
-    }
 }
 
 

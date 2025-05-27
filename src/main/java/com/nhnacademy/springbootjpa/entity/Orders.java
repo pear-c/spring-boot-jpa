@@ -1,9 +1,6 @@
 package com.nhnacademy.springbootjpa.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
@@ -15,7 +12,11 @@ public class Orders {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int orderId;
-    private int customerId;
+
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customers customers;
+
     private LocalDateTime orderDate;
     private LocalDateTime shipDate;
 }
