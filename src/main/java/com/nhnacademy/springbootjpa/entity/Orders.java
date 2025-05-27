@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 public class Orders {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int orderId;
+    private long orderId;
 
     @ManyToOne
     @JoinColumn(name = "customer_id")

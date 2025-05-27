@@ -14,7 +14,7 @@ import java.util.List;
 public class Products {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int productId;
+    private long productId;
 
     @ManyToOne
     @JoinColumn(name = "category_id")

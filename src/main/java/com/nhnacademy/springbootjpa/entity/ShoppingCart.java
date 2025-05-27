@@ -10,9 +10,10 @@ import java.time.LocalDateTime;
 public class ShoppingCart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int recordId;
+    private long recordId;
+
     private String cartId;
-    private int quantity;
+    private long quantity;
 
     @ManyToOne
     @JoinColumn(name = "product_id")

@@ -13,6 +13,6 @@ import lombok.NoArgsConstructor;
 public class Categories {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int categoryId;
+    private long categoryId;
     private String categoryName;
 }
